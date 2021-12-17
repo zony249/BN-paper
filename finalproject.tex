@@ -11,14 +11,27 @@
 \date{Dec 1, 2021}
 
 \usepackage{mathbbol}
+\usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage{xcolor}
+\usepackage[ruled, linesnumbered]{algorithm2e}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+
+
 \graphicspath{{assets/}}
 
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
 \begin{document}
-100%
+
+\maketitle
+
 \begin{multicols}{2}
 
 
@@ -26,7 +39,17 @@
 
 
 
+\section*{Abstract}
 
+Batch Normalization is a method of standard normalization applied to the 
+weighted sums of each layer in a neural network. Developed and in 2015 by 
+Sergey Ioffe and Christian Szegedy, Batch Normalization
+helps significantly speed up the training of deep neural networks by reducing the 
+\textit{internal covariate shift} in each layer, which describes the 
+changes to the mean and variance of layer distributions during the training process. This
+paper goes into a detailed explanation of the backpropagation process which includes
+derivations that were omitted in the original paper, as well as exploring through 
+experimentation the effects BN has on training and hyperparameter search.
 
 
 \section*{1.0: Introduction}
@@ -650,7 +673,9 @@ We implemented two 5-layer neural networks, one with batch normalization, and
 one without as a control. Other than the BN layers, the model architecture are
 identical, with 4 hidden layers with 1000 neurons each, terminating with a 
 binary classifier. For the full model diagrams, refer to \textit{Figure 3.1.0} 
-in the appendix.
+in the appendix. Both networks were implemented in NumPy (i.e. no high-level 
+ML libraries were used), and the BN implementation
+strictly follows the formulation described in \textbf{section 2}.
 
 The training heuristics are identical for each model. The hyperparameter search process used 
 a genetic algorithm (M. Gen, R. Cheng, 2000) to find the best performing 
@@ -665,7 +690,93 @@ by validation accuracy. The two hyperparameters being optimized are the
 L2 regularization coefficient and the learning rate. Then, the top 3 models
 within each generation are selected and using gaussian mutation, the bounds of each hyperparameter 
 are updated. We train for 10 generations total, with 10 models per generation, 
-where each model is trained for 10 epochs. Below is the hyperparameter search algorithm:
+where each model is trained for 10 epochs. Refer to \textit{Algorithm 3.2.0}
+in the appendix for the hyperparameter search algorithm.
+
+After the ideal hyperparameters are found, the models are then trained 
+one last time for 10 epochs before evaluating them on the test set. 
+
+\subsection*{3.2: Experimental Results and Discussion}
+
+The hyperparameter search process is where we see the first differences
+between the batch-normalized model and the control. Referring to \textit{Table 3.2.1} 
+from the appendix, we see that the ideal learning rate for the batch-normalized 
+model is 2.57, significantly \textbf{higher} than the 0.62 for the control model. This 
+corroborates with the reportings from the original paper, where BN allows for 
+larger learning rates without risking the model diverging. 
+
+The effects of the larger learning rate are shown when we look at the training
+loss and accuracy at the final epoch -- the BN model shows lower training
+loss (0.3379 vs 0.4846) and higher training accuracy (0.8927 vs 0.7586) than 
+the control model. While we often do not compare training metrics between models,
+this shows that the BN model can perform more aggressive gradient steps than 
+the control model.
+
+We also notice that the L2 coefficients obtained from hyperparameter 
+search are \textbf{lower} for the BN model than the values for the control model 
+($1.26 \times 10^{-8}$ vs. $3.98 \times 10^{-8}$), which suggests that BN also 
+provides slight regularization effects. The original papers on Batch Normalization
+also arrived on the same conclusion, stating that the strength of Dropout (or 
+other methods of regularization) can be reduced or removed in a Batch Normalized 
+network.
+
+
+\begin{Figure}
+    \captionsetup{labelformat=empty}
+    \includegraphics[width=\linewidth]{AccHist.png}
+    \includegraphics[width=\linewidth]{LossHist.png}
+    \captionof{figure}{Figure 3.2.2: Accuracy and Loss comparisons between batch-normalized and control models}
+\end{Figure}
+
+The validation performance of the BN model also shows improvements over the 
+control model, achieving a peak validation accuracy of $0.7130$ after training
+for 8 epochs vs. $0.6929$ after 9 epochs. Referring to \textit{Figure 3.2.2}, 
+we can observe that the metrics of the BN model performs consistently better 
+than the control model, and arrives at peak validation performance in less
+gradient steps than the control model. In the end, the batch-normalized network 
+achieved a test accuracy of 0.7127, compared to 0.6872 of the control model.
+
+
+\subsection*{3.3: Limitations of Batch Normalization}
+
+So far, we've seen the benefits of Batch Normalization as it standardizes and stabilizes the layer
+distributions in neural networks, allowing for much faster training
+as well as higher peak validation and test performance. That said, 
+implementing BN comes with a performance penalty. We benchmarked the training
+and inference performance of the batch normalized and control model, of which 
+the performance values can be found in \textit{Table 3.2.1}. During inference, 
+the BN model needs to compute equations (15) and (3) during forward propagation
+at each layer, leading to a 25.3\% slowdown for the BN model. During the training
+process, the performance penalty is even greater, as in addition to the 
+forward propagation overhead of BN, we also need to calculate equations (12), (13), and (14)
+at every layer during backprop, leading to an overall slowdown of 35.6\%.
+The performance penalty during inference may be an issue for tasks that 
+are time-sensitive, such as real time object detection, while the performance
+penalty during training is often not a concern, as BN already speeds up training
+significantly.
+
+\section*{4.0: Conclusion and Final Remarks}
+
+Batch Normalization extends on the idea of feature standardization, applying 
+standardization operations on the weighted sums of each layer over a mini-batch, 
+then scaling and shifting by parameters $\boldsymbol{\gamma}, \boldsymbol{\beta}$ 
+learnt through gradient descent. These operations reduce the internal covariate shift
+during training, allowing much larger gradient steps to be performed without diverging.
+
+In this paper we presented the in-depth derivation of backpropagation
+of BN and implemented the derived formulation in a simple fully-connected model.
+The BN model was then compared against architecturally-identical control model
+on the Higgs Dataset. From the experimentation we found that the BN model supported
+higher learning rates and did not need as much regularization as the control.
+While BN introduces runtime performance penalties when training and predicting, 
+for our experiment, the benefits of faster convergence far outweighed the 
+drawbacks of slower gradient iterations.
+\textbf{All in all, the BN model trained faster and performed better on the test set 
+than the control model}.
+
+Finally, as a follow-up to this paper, we can explore implementing BN on 
+different model architectures, as well as experimenting with the placement 
+of BN within a layer given different nonlinearities and weight initializations. 
 
 
 
@@ -680,7 +791,7 @@ where each model is trained for 10 epochs. Below is the hyperparameter search al
 
 
 \newpage
-\section*{x.0: References}
+\section*{5.0: References}
 
 Backpropagation website:
 \url{https://kevinzakka.github.io/2016/09/14/batch_normalization/}
@@ -702,23 +813,27 @@ Baldi, P., P. Sadowski, and D. Whiteson. “Searching for Exotic Particles in Hi
 \noindent Genetic Algorithms (page 34, gaussian mutation):
 \url{https://books.google.ca/books?hl=en&lr=&id=U7MuV1q6P1oC&oi=fnd&pg=PR13&ots=51xsEryrpq&sig=y3vgWu0h7DZ4CGBcRlhXdc2ClCE&redir_esc=y#v=onepage&q&f=false}
 
+\noindent Dropout: 
+\url{https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf}
 
 
-
-
+\noindent Inception Net:
+\url{https://arxiv.org/pdf/1409.4842.pdf}
 
 
 
 
 \newpage
-\section*{x.0: Appendix}
+\section*{6.0: Appendix}
 \begin{figure}[!ht]
     \captionsetup{labelformat=empty}
+    \centering
     \includegraphics[scale=0.4]{Batch Norm dependencies graph.drawio.png}
     \caption{Figure 2.1.0: Dependencies graph of $J$ with respect to $z^{(i)}$}
 \end{figure}
 \begin{figure}[!ht]
     \captionsetup{labelformat=empty}
+    \centering
     \includegraphics[scale=0.4]{Dependencies graph with beta gamma.drawio.png}
     \caption{Figure 2.1.1: Dependencies graph of $J$ with respect to $\boldsymbol{\gamma}$ and $\boldsymbol{\beta}$}  
 \end{figure}
@@ -731,6 +846,92 @@ Baldi, P., P. Sadowski, and D. Whiteson. “Searching for Exotic Particles in Hi
     \caption{Figure 3.1.0: The control model and the Batch Normalized model}
     \label{fig:example}
 \end{figure}
+
+\renewcommand{\thealgocf}{3.2.0}
+\begin{figure}
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+    \begin{algorithm}[H]
+        \SetAlgoLined
+        \caption{Hyperparameter Search}
+        $\lambda_{upper}\leftarrow 0$ \ \ \ \ \ \ \tcp{L2 bounds}
+        $\lambda_{lower}\leftarrow -10$ \\
+        $\alpha_{upper}\leftarrow 0$ \ \ \ \ \ \ \tcp{Learning Rate bounds}
+        $\alpha_{lower}\leftarrow -10$ \\
+        
+        \For(){10 Generations}{
+            \For{10 models} {
+                $\lambda_{model} \leftarrow 10^{\text{Rand}(\lambda_{lower}, \lambda_{upper})}$\\
+                $\alpha_{model} \leftarrow 10^{\text{Rand}(\alpha_{lower}, \alpha_{upper})}$\\
+                \vspace{10px}
+                model $\leftarrow$ new NN using $\lambda_{model}, \alpha_{model}$\\
+                Train model for 10 epochs \\
+                Save best validation accuracy
+            }
+    
+            \tcc{************ Gaussian Mutation ***********}
+    
+            Select top 3 models based on val accuracy\\
+    
+            \vspace{10px}
+            \tcp{Mean and stddev of L2 bounds of top 3 models}
+            $\overline{\lambda_{bnds}} \leftarrow \text{mean} (\log_{10}(\text{top3}.\lambda_{model}))$\\
+            $\text{std}({\lambda_{bnds}}) \leftarrow \text{stddev} (\log_{10}(\text{top3}.\lambda_{model}))$\\
+            \vspace{10px}
+            \tcp{Mean and stddev of learning rate bounds of top 3 models}
+            $\overline{\alpha_{bnds}} \leftarrow \text{mean} (\log_{10}(\text{top3}.\alpha_{model}))$\\
+            $\text{std}({\alpha_{bnds}}) \leftarrow \text{stddev} (\log_{10}(\text{top3}.\alpha_{model}))$\\
+    
+            \vspace{10px}
+            \tcp{update bounds with corresponding first and second moments}
+            $\lambda_{upper}, \lambda_{lower} \leftarrow \overline{\lambda_{bnds}} \pm 1.5\text{std}(\lambda_{bnds})$\\
+            $\alpha_{upper}, \alpha_{lower} \leftarrow \overline{\alpha_{bnds}} \pm 1.5\text{std}(\alpha_{bnds})$
+        
+        }
+    
+        $\hat{\lambda} \leftarrow 10^{\lambda_{upper} + \lambda_{lower} \over 2}$\\
+        $\hat{\alpha} \leftarrow 10^{\alpha_{upper} + \alpha_{lower} \over 2}$ 
+    
+        return $\hat{\lambda}, \hat{\alpha}$
+        \end{algorithm}
+    \end{minipage}
+    
+\end{figure}
+
+
+
+\begin{figure}
+    \captionsetup{labelformat=empty}
+    \centering
+    \caption{Table 3.2.1: Observations after Hyperparameter Search}
+    \begin{tabular}{ |p{6cm}|p{3cm}|p{3cm}|  }
+        \hline
+        \textbf{Data} & \textbf{Control Model} & \textbf{BN Model}\\
+        \hline
+        \hline
+        Learning Rate & $0.62$ & 2.57 \\ 
+        L2 & $3.98 \times 10^{-8}$ & $1.26 \times 10^{-8}$\\
+        Best Epoch & $9$ &$8$ \\
+        \hline
+        Validation Accuracy (best epoch) & $0.6929$ & $0.7130$\\
+        Training Accuracy (best epoch) & $0.7433$ & $0.8467$\\
+        Validation Loss (best epoch) & $0.6005$ & $0.5651$ \\
+        Training Loss (best epoch) & $0.5001$ & $0.3864$\\
+        \hline
+        Training Accuracy (epoch 10) & $0.7586$ & $0.8927$\\
+        Training Loss (epoch 10) & $0.4846$ & $0.3379$\\
+        \hline
+        Training step time (Batch size 1024) & $0.249$s & $0.387$s \\
+        Inference step time (Batch size 1024) & $0.124$s & $0.166$s \\
+        \hline
+        \textbf{Test Accuracy (best epoch) }& \textbf{0.6872} & \textbf{0.7127} \\
+        \hline
+    \end{tabular}
+\end{figure}
+
+
+
 
 
 
