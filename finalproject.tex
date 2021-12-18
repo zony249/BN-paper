@@ -1,8 +1,10 @@
 \documentclass{article}
+
 \usepackage[a4paper, total={7in, 9in}]{geometry}
 \usepackage{multicol}
 \usepackage{blindtext}
 \usepackage{caption}
+\usepackage{cite}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 
 
@@ -42,29 +44,28 @@
 \section*{Abstract}
 
 Batch Normalization is a method of standard normalization applied to the 
-weighted sums of each layer in a neural network. Developed and in 2015 by 
-Sergey Ioffe and Christian Szegedy, Batch Normalization
+weighted sums of each layer in a neural network. Developed in 2015, Batch Normalization
 helps significantly speed up the training of deep neural networks by reducing the 
 \textit{internal covariate shift} in each layer, which describes the 
 changes to the mean and variance of layer distributions during the training process. This
 paper goes into a detailed explanation of the backpropagation process which includes
-derivations that were omitted in the original paper, as well as exploring through 
-experimentation the effects BN has on training and hyperparameter search.
+derivations that were not presented in the original paper, as well as exploring through 
+experimentation the effects Batch Normalization has on training and hyperparameter search.
 
 
 \section*{1.0: Introduction}
 In the field of supervised learning, a mathematical model is fit to 
 a training dataset using various optimization schemes such that the model 
 can be used to make predictions on unseen data. However, 
-due to the nature of most training data, optimization is often made more 
-difficult. In many multivariate learning problems, the input features are
+due to the nature of most training data, optimization can often be
+difficult and un-optimal. In many multivariate learning problems, the input features are
 often on completely different scales. This leads to a highly eccentric cost
 function where gradients with respect to certain weights are much steeper
 than with respect to other weights. This requires learning rates to 
 be very small in order not to overshoot in any dimension.
 
 To solve this problem, many feature scaling techniques were developed to ensure
-that all input features are roughly on the same scale. One example is \textbf{standardization}
+that all input features are roughly on the same scale. One example is \textbf{standardization}\cite{standardization}
 where raw features are processed by subtracting by the mean of the data and 
 scaling by the standard deviation:
 
@@ -90,8 +91,8 @@ of a single layer within the NN:
     \textbf{z} = \textbf{Wx} + \textbf{b} \notag
 \end{equation}
 
-We may assume that $\textbf{x} \sim \mathcal{N}(0, 1)$, however this by no means
-guarantee that $\textbf{z} \sim \mathcal{N}(0, 1)$. This is problematic because 
+We may assume that the input features are standardized such that $\textbf{x} \sim \mathcal{N}(0, 1)$, 
+however this by no means guarantee that $\textbf{z} \sim \mathcal{N}(0, 1)$. This is problematic because 
 $\textbf{z}$ (after passing it through a nonlinearity) becomes the input to
 the next layer. A non-standardized $\textbf{z}$ introduces different
 behaviours on the succeeding layer's inputs depending on the nonlinearity 
@@ -111,7 +112,7 @@ if the magnitudes are large.
 
 \subsection*{1.1: Batch Normalization}
 In the 2015 paper ``\textit{Batch Normalization: Accelerating Deep Network Training 
-by Reducing Internal Covariate Shift}'' (S. Ioffe, C. Szegedy, 2015), the researchers
+by Reducing Internal Covariate Shift}''\cite{batchnorm}, the researchers
 propose a method to standardize the weighted sum of each layer, ensuring that their
 distributions remain stable during training. This elimination of ``\textit{Internal Covariate Shift}''allows the use of much larger learning
 rates without the gradients diverging, thus greatly accelerating convergence.
@@ -154,9 +155,10 @@ $\hat{\textbf{y}}$ to denote the standardized weighted sum,
 $\textbf{a}$ to denote the nonlinearity output, and $(i)$ represents index 
 of the training element.
 It's worth mentioning that a common area of contention is the placement 
-of BN with respect to the activation function. This topic by itself 
-can form an entire area of research, so for this paper we will stick with the 
-implementation of the original 2015 paper, placing BN \textbf{before} the nonlinearity.
+of BN with respect to the activation function. Although this topic 
+has been researched \cite{bnplacement}, the results depended on the model architecture, 
+so for this paper we will stick with the implementation of the 
+original 2015 paper\cite{batchnorm}, placing BN \textbf{before} the nonlinearity.
 
 Applying feature standardization on the weighted sum, we get the following:
 
@@ -239,8 +241,10 @@ and $\boldsymbol{\beta} = \boldsymbol{\mu}$, then we observe that $\hat{\textbf{
 
 In the beginning of \textbf{section 2.0}, we formulated the order of which
 operations are performed in forward propagation through a single layer (1). 
-Backpropagation involves propagating the gradients in the reverse order, which
-requires computing several gradients of BN. This includes calculating 
+Backpropagation\cite{backprop} involves computing the gradients in the reverse order of 
+computations in forward propagation, which
+requires computing several gradients with respect to the parameters
+of the BN layer. This includes calculating 
 $\begin{aligned}
     {\partial J \over \partial \textbf{z}^{(i)}}
 \end{aligned}$ for the $i^{\text{th}}$ input to BN, as well as $\begin{aligned}
@@ -629,11 +633,11 @@ and variance of the training set for the standardization calculations.
     \hat{\textbf{z}}^{(i)} = {\textbf{z}^{(i)} - \text{E}[\textbf{z}_{train}] \over \sqrt{\text{Var}[\textbf{z}_{train}] + \epsilon}}
 \end{equation}
 
-The original papers mention why the population statistics were used rather 
+The original papers\cite{batchnorm} mention why the population statistics were used rather 
 than the inference mini-batch statistics -- we want the inference output
 to depend only on the input, rather than other inputs in the mini-batch.
 This is especially apparent if mini-batch sample is small. The sample statistics
-of batch sizes smaller than 30 can vary wildly from the population statistics.
+of batch sizes smaller than 30\cite{CLT} can vary wildly from the population statistics.
 There are also applications of inference where the mini-batch size of 1 is 
 desired. In these cases, sample variance is unobtainable.
 
@@ -660,7 +664,7 @@ fully-connected neural network without BN.
 \subsection*{3.1: Testing Methodology}
 
 Firstly it's important to talk about the dataset used to conduct the tests.
-The Higgs Dataset (Baldi, P., P. Sadowski, and D. Whiteson, 2014) is produced 
+The Higgs Dataset\cite{higgs} is produced 
 by Monte Carlo simulations of particles in a particle accelerator. The 
 dataset contains 11 million datapoints with 28 features each, as well
 as a binary task representing whether the signal produced a Higgs boson, or 
@@ -792,6 +796,18 @@ of BN within a layer given different nonlinearities and weight initializations.
 
 \newpage
 \section*{5.0: References}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+
+
+
+
+
+
+
+
 
 Backpropagation website:
 \url{https://kevinzakka.github.io/2016/09/14/batch_normalization/}

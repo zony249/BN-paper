@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.14)  17 DEC 2021 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.14)  17 DEC 2021 23:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -151,6 +151,10 @@ Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count284
 \c@continuedfloat=\count285
+) (/usr/share/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
 ) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
  (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -426,24 +430,24 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 ) (/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.aux)
 \openout1 = `finalproject.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -483,7 +487,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 33.
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
@@ -493,9 +497,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count322
 )
-LaTeX Info: Redefining \ref on input line 31.
-LaTeX Info: Redefining \pageref on input line 31.
-LaTeX Info: Redefining \nameref on input line 31.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
  (/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.out) (/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.out)
 \@outlinefile=\write3
 \openout3 = `finalproject.out'.
@@ -519,196 +523,203 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+bbold on input line 34.
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 36.
  (/usr/share/texmf-dist/tex/latex/bbold/Ubbold.fd)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 72.
+(amsmath)                 on input line 73.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}pdfTeX warning (ext4): destination with the same identifier (name{equation.0.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.140 
+l.141 
       ]pdfTeX warning (ext4): destination with the same identifier (name{equation.0.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.141 \begin{equation}
+l.142 \begin{equation}
                       pdfTeX warning (ext4): destination with the same identifier (name{equation.0.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.144 \begin{equation}
+l.145 \begin{equation}
                       pdfTeX warning (ext4): destination with the same identifier (name{equation.0.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147 \begin{equation}
+l.148 \begin{equation}
                        [2pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
+l.278 \begin{equation}
+                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.278 \end{equation}
-                    ]
-Overfull \hbox (28.51527pt too wide) detected at line 444
+l.278 \begin{equation}
+                      ]
+Overfull \hbox (28.51527pt too wide) detected at line 448
 [][]
  []
 
 [3pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.465 \end{aligned}$$
+l.469 \end{aligned}$$
                      ]pdfTeX warning (ext4): destination with the same identifier (name{equation.0.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.480 \begin{equation}
+l.484 \begin{equation}
                        [4pdfTeX warning (ext4): destination with the same identifier (name{equation.0.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.630 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.11}) has been already used, duplicate ignored
+l.631 
+      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.630 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.11}) has been already used, duplicate ignored
+l.631 
+      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.630 \end{equation}
-                    pdfTeX warning (ext4): destination with the same identifier (name{equation.0.12}) has been already used, duplicate ignored
+l.631 
+      pdfTeX warning (ext4): destination with the same identifier (name{equation.0.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.630 \end{equation}
-                    ] [5]
-<assets//AccHist.png, id=64, 462.528pt x 346.896pt>
+l.631 
+      ] [5]
+<assets//AccHist.png, id=78, 462.528pt x 346.896pt>
 File: assets//AccHist.png Graphic file (type png)
 <use assets//AccHist.png>
-Package pdftex.def Info: assets//AccHist.png  used on input line 726.
+Package pdftex.def Info: assets//AccHist.png  used on input line 730.
 (pdftex.def)             Requested size: 247.94499pt x 185.9607pt.
-<assets//LossHist.png, id=66, 462.528pt x 346.896pt>
+<assets//LossHist.png, id=80, 462.528pt x 346.896pt>
 File: assets//LossHist.png Graphic file (type png)
 <use assets//LossHist.png>
-Package pdftex.def Info: assets//LossHist.png  used on input line 727.
+Package pdftex.def Info: assets//LossHist.png  used on input line 731.
 (pdftex.def)             Requested size: 247.94499pt x 185.9607pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 728.
+(caption)                particular \caption on input line 732.
 See the caption package documentation for explanation.
 
-[6 </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//AccHist.png> </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//LossHist.png>]
-Overfull \hbox (5.26065pt too wide) in paragraph at lines 813--815
+[6 </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//AccHist.png> </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//LossHist.png>] (/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.bbl
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+)
+Overfull \hbox (5.26065pt too wide) in paragraph at lines 829--831
 \OT1/cmr/m/n/10 Genetic Al-go-rithms (page 34, gaus-sian mu-ta-tion): []$\OT1/cmtt/m/n/10 https : / / books . google . ca / books ? hl = en & lr = &id = U7MuV1q6P1oC &
  []
 
 [7]
-<assets//Batch Norm dependencies graph.drawio.png, id=92, 1148.29pt x 563.10374pt>
+<assets//Batch Norm dependencies graph.drawio.png, id=113, 1148.29pt x 563.10374pt>
 File: assets//Batch Norm dependencies graph.drawio.png Graphic file (type png)
 <use assets//Batch Norm dependencies graph.drawio.png>
-Package pdftex.def Info: assets//Batch Norm dependencies graph.drawio.png  used on input line 831.
+Package pdftex.def Info: assets//Batch Norm dependencies graph.drawio.png  used on input line 847.
 (pdftex.def)             Requested size: 459.30786pt x 225.2375pt.
-<assets//Dependencies graph with beta gamma.drawio.png, id=93, 643.40375pt x 794.97pt>
+<assets//Dependencies graph with beta gamma.drawio.png, id=114, 643.40375pt x 794.97pt>
 File: assets//Dependencies graph with beta gamma.drawio.png Graphic file (type png)
 <use assets//Dependencies graph with beta gamma.drawio.png>
-Package pdftex.def Info: assets//Dependencies graph with beta gamma.drawio.png  used on input line 837.
+Package pdftex.def Info: assets//Dependencies graph with beta gamma.drawio.png  used on input line 853.
 (pdftex.def)             Requested size: 257.35693pt x 317.98236pt.
-<assets//NN regular.drawio.png, id=94, 201.75375pt x 549.05125pt>
+<assets//NN regular.drawio.png, id=115, 201.75375pt x 549.05125pt>
 File: assets//NN regular.drawio.png Graphic file (type png)
 <use assets//NN regular.drawio.png>
-Package pdftex.def Info: assets//NN regular.drawio.png  used on input line 843.
+Package pdftex.def Info: assets//NN regular.drawio.png  used on input line 859.
 (pdftex.def)             Requested size: 100.87662pt x 274.52495pt.
-<assets//NN batchnorm.drawio.png, id=95, 201.75375pt x 656.4525pt>
+<assets//NN batchnorm.drawio.png, id=116, 201.75375pt x 656.4525pt>
 File: assets//NN batchnorm.drawio.png Graphic file (type png)
 <use assets//NN batchnorm.drawio.png>
-Package pdftex.def Info: assets//NN batchnorm.drawio.png  used on input line 845.
+Package pdftex.def Info: assets//NN batchnorm.drawio.png  used on input line 861.
 (pdftex.def)             Requested size: 100.87662pt x 328.22545pt.
  [8 </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//Batch Norm dependencies graph.drawio.png> </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//Dependencies graph with beta gamma.drawio.png>] [9 </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//NN regular.drawio.png> </home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//NN batchnorm.drawio.png>] [10] (/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.aux)
 Package rerunfilecheck Info: File `finalproject.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 12641 strings out of 478994
- 189255 string characters out of 5864750
- 540041 words of memory out of 5000000
- 29858 multiletter control sequences out of 15000+600000
+ 12754 strings out of 478994
+ 190897 string characters out of 5864750
+ 542160 words of memory out of 5000000
+ 29958 multiletter control sequences out of 15000+600000
  415536 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,21n,74p,440b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf" (10 pages, 449250 bytes).
+Output written on "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf" (10 pages, 454445 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
- 73 named destinations out of 1000 (max. 500000)
+ 255 PDF objects out of 1000 (max. 8388607)
+ 208 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

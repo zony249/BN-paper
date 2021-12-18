@@ -1,7 +1,14 @@
 # Fdb version 3
-["pdflatex"] 1639785046 "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf" "finalproject" 1639785047
-  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.aux" 1639785047 2355 f4aa93f59f327d79b7610dbb0fe2b1c5 ""
-  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" 1639785045 40263 602476f25150a33d99543a7f913eaefb ""
+["bibtex finalproject"] 1639807843 "finalproject.aux" "finalproject.bbl" "finalproject" 1639807844
+  "/usr/share/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1617738001 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
+  "finalproject.aux" 1639807844 2690 ae35ce9af0de1a9b36ab1c30b12f2583 "pdflatex"
+  "refs.bib" 1639807833 6786 5b1a7bac767fcdcafb113e5ada2d7ef1 ""
+  (generated)
+  "finalproject.blg"
+  "finalproject.bbl"
+["pdflatex"] 1639807843 "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf" "finalproject" 1639807844
+  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.aux" 1639807844 2690 ae35ce9af0de1a9b36ab1c30b12f2583 ""
+  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" 1639807839 40536 def39a1af58b39367dc8ae07b6fb892d ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1617738065 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1617738065 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1617738065 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -98,6 +105,7 @@
   "/usr/share/texmf-dist/tex/latex/blindtext/blindtext.sty" 1621766596 47295 de48b7f8ebf4b54709a2f6b2c7106dd5 ""
   "/usr/share/texmf-dist/tex/latex/caption/caption.sty" 1617738065 51746 e89c4da670ba533e6ab38e045ce6d1d9 ""
   "/usr/share/texmf-dist/tex/latex/caption/caption3.sty" 1617738065 67929 d50ae850e1d9604065e8337a75a41029 ""
+  "/usr/share/texmf-dist/tex/latex/cite/cite.sty" 1617738065 26218 19edeff8cdc2bcb704e8051dc55eb5a7 ""
   "/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1617738065 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texmf-dist/tex/latex/geometry/geometry.sty" 1617738065 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1617738065 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
@@ -138,13 +146,14 @@
   "assets//LossHist.png" 1639602738 34199 9783f0eba5cbc77f0501259ce0f536dd ""
   "assets//NN batchnorm.drawio.png" 1639420751 44312 f984140a65d5685e002008f486f05290 ""
   "assets//NN regular.drawio.png" 1639420159 30816 d752d8f3099de13d43b9b0fed0087016 ""
-  "finalproject.aux" 1639785047 2355 f4aa93f59f327d79b7610dbb0fe2b1c5 "pdflatex"
-  "finalproject.out" 1639785047 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "finalproject.tex" 1639785045 40263 602476f25150a33d99543a7f913eaefb ""
+  "finalproject.aux" 1639807844 2690 ae35ce9af0de1a9b36ab1c30b12f2583 "pdflatex"
+  "finalproject.bbl" 1639807843 3050 da66bcb7a187a4ee0df0792dd089a9ab "bibtex finalproject"
+  "finalproject.out" 1639807844 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "finalproject.tex" 1639807839 40536 def39a1af58b39367dc8ae07b6fb892d ""
   (generated)
   "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.log"
-  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf"
-  "finalproject.aux"
-  "finalproject.log"
-  "finalproject.out"
   "finalproject.pdf"
+  "finalproject.out"
+  "finalproject.aux"
+  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf"
+  "finalproject.log"

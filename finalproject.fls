@@ -118,6 +118,17 @@ INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
 INPUT /usr/share/texmf-dist/tex/latex/url/url.sty
 INPUT /usr/share/texmf-dist/tex/latex/url/url.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -756,6 +767,10 @@ INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submissi
 INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//LossHist.png
 INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//LossHist.png
 INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//LossHist.png
+INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.bbl
+INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.bbl
+INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.bbl
+INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.bbl
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//Batch Norm dependencies graph.drawio.png
 INPUT /home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/assets//Batch Norm dependencies graph.drawio.png
