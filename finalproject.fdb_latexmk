@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex finalproject"] 1639875505 "finalproject.aux" "finalproject.bbl" "finalproject" 1639878825
+["bibtex finalproject"] 1639878867 "finalproject.aux" "finalproject.bbl" "finalproject" 1639878869
   "/usr/share/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1617738001 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "finalproject.aux" 1639878824 3006 1fef7f8912b7d490f25d69d7c2140dc4 "pdflatex"
+  "finalproject.aux" 1639878868 3010 c398974299cb216d782739906177c152 "pdflatex"
   "refs.bib" 1639871346 9059 e4f17d1c9bdd28d3738d7212ecd7b4ff ""
   (generated)
   "finalproject.blg"
   "finalproject.bbl"
-["pdflatex"] 1639878823 "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf" "finalproject" 1639878825
-  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.aux" 1639878824 3006 1fef7f8912b7d490f25d69d7c2140dc4 ""
-  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" 1639878823 40100 0bee0b4f3b3dd8fe019f9e2456b6b296 ""
+["pdflatex"] 1639878867 "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf" "finalproject" 1639878869
+  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.aux" 1639878868 3010 c398974299cb216d782739906177c152 ""
+  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.tex" 1639878865 40123 e5d07286af7db884fe17cdbcd0ba0776 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1617738065 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1617738065 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1617738065 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -150,14 +150,14 @@
   "assets//LossHist.png" 1639872883 35757 5a209e0f5e97e65b01a8be7b2a4345b9 ""
   "assets//NN batchnorm.drawio.png" 1639420751 44312 f984140a65d5685e002008f486f05290 ""
   "assets//NN regular.drawio.png" 1639420159 30816 d752d8f3099de13d43b9b0fed0087016 ""
-  "finalproject.aux" 1639878824 3006 1fef7f8912b7d490f25d69d7c2140dc4 "pdflatex"
-  "finalproject.bbl" 1639875505 3827 8126311cea6d51c467b8b80eb692da28 "bibtex finalproject"
-  "finalproject.out" 1639878824 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "finalproject.tex" 1639878823 40100 0bee0b4f3b3dd8fe019f9e2456b6b296 ""
+  "finalproject.aux" 1639878868 3010 c398974299cb216d782739906177c152 "pdflatex"
+  "finalproject.bbl" 1639878867 3827 8126311cea6d51c467b8b80eb692da28 "bibtex finalproject"
+  "finalproject.out" 1639878868 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "finalproject.tex" 1639878865 40123 e5d07286af7db884fe17cdbcd0ba0776 ""
   (generated)
-  "finalproject.log"
-  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.log"
   "finalproject.aux"
-  "finalproject.pdf"
   "finalproject.out"
+  "finalproject.pdf"
   "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.pdf"
+  "/home/zonyyu/Documents/University Courses/CMPUT 466/Final Project/Submission/finalproject.log"
+  "finalproject.log"
