@@ -17,45 +17,45 @@ Warning--I'm ignoring CLT's extra "url" field
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 6 entries,
+You've used 9 entries,
             4087 wiz_defined-function locations,
-            881 strings with 8793 characters,
-and the built_in function-call counts, 4898 in all, are:
-= -- 418
-> -- 91
-< -- 37
-+ -- 49
-- -- 15
-* -- 273
-:= -- 796
-add.period$ -- 13
-call.type$ -- 6
-change.case$ -- 9
-chr.to.int$ -- 75
-cite$ -- 6
-duplicate$ -- 345
-empty$ -- 372
-format.name$ -- 21
-if$ -- 1112
+            902 strings with 9343 characters,
+and the built_in function-call counts, 6977 in all, are:
+= -- 599
+> -- 135
+< -- 46
++ -- 71
+- -- 24
+* -- 364
+:= -- 1108
+add.period$ -- 19
+call.type$ -- 9
+change.case$ -- 11
+chr.to.int$ -- 90
+cite$ -- 9
+duplicate$ -- 507
+empty$ -- 553
+format.name$ -- 33
+if$ -- 1613
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 61
-newline$ -- 51
-num.names$ -- 8
-pop$ -- 121
+int.to.str$ -- 9
+missing$ -- 89
+newline$ -- 62
+num.names$ -- 11
+pop$ -- 187
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 371
+skip$ -- 553
 stack$ -- 0
-substring$ -- 191
-swap$ -- 298
-text.length$ -- 12
+substring$ -- 250
+swap$ -- 424
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 6
+type$ -- 9
 warning$ -- 0
-while$ -- 21
-width$ -- 7
-write$ -- 99
+while$ -- 28
+width$ -- 10
+write$ -- 130
 (There were 2 warnings)

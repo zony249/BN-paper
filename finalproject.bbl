@@ -70,4 +70,22 @@ P.~Baldi, P.~Sadowski, and D.~Whiteson, ``Searching for exotic particles in
   \url{https://doi.org/10.1038/ncomms5308}
 \BIBentrySTDinterwordspacing
 
+\bibitem{genetic}
+\BIBentryALTinterwordspacing
+M.~Gen and R.~Cheng, \emph{Genetic Algorithms and Engineering Optimization},
+  ser. Engineering Design and Automation.\hskip 1em plus 0.5em minus
+  0.4em\relax Wiley, 1999. [Online]. Available:
+  \url{https://books.google.ca/books?id=U7MuV1q6P1oC}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gm}
+N.~Higashi and H.~Iba, ``Particle swarm optimization with gaussian mutation,''
+  in \emph{Proceedings of the 2003 IEEE Swarm Intelligence Symposium. SIS'03
+  (Cat. No.03EX706)}, 2003, pp. 72--79.
+
+\bibitem{dropout}
+N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov,
+  ``Dropout: A simple way to prevent neural networks from overfitting,''
+  \emph{J. Mach. Learn. Res.}, vol.~15, no.~1, p. 1929–1958, jan 2014.
+
 \end{thebibliography}

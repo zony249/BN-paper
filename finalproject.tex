@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage[a4paper, total={7in, 9.2in}]{geometry}
 \usepackage{multicol}
 \usepackage{blindtext}
 \usepackage{caption}
@@ -8,7 +8,7 @@
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 
 
-\title{Course Project: Exploring Batch Normalization}
+\title{Final Project: Exploring Batch Normalization}
 \author{Zony Yu}
 \date{Dec 1, 2021}
 
@@ -23,6 +23,10 @@
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
 \SetCommentSty{mycommfont}
 
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+
 
 \graphicspath{{assets/}}
 
@@ -34,7 +38,7 @@
 
 \maketitle
 
-\begin{multicols}{2}
+\begin{multicols*}{2}
 
 
 
@@ -51,6 +55,8 @@ changes to the mean and variance of layer distributions during the training proc
 paper goes into a detailed explanation of the backpropagation process which includes
 derivations that were not presented in the original paper, as well as exploring through 
 experimentation the effects Batch Normalization has on training and hyperparameter search.
+All code used in this experiment can be found in my GitHub repo: 
+\url{https://github.com/zony249/Batch-Norm}
 
 
 \section*{1.0: Introduction}
@@ -137,19 +143,36 @@ and without BN.
 
 Batch Normalization applies feature standardization to the weighted sum of 
 each layer, which then the normalized outputs are fed into the nonlinearity.
-A concrete description is shown below:
+A concrete description is shown below:\\
 
-\begin{equation}
-    \textbf{z}^{(i)} = \textbf{W}\textbf{x}^{(i)} \notag
-\end{equation}
-\begin{equation}
-    \hat{\textbf{y}}^{(i)} = \text{BN}(\textbf{z}^{(i)}) \notag
-\end{equation}
-\begin{equation}
-    \textbf{a}^{(i)} = f(\hat{\textbf{y}}^{(i)}) 
-\end{equation}
 
-In the above equations, we use $\textbf{x}$ to denote the inputs to the layer, 
+
+\renewcommand{\thealgocf}{2.0.0}
+
+
+\begin{minipage}{0.8\linewidth}
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \caption{Forward Propagation for a particular layer}
+    \SetKwInput{KwInput}{Input}
+    \SetKwInput{KwOutput}{Output}
+    \SetKwProg{Fn}{Function}{ is}{end}
+
+    \KwInput{$\textbf{x}^{(i)}$}
+    \KwOutput{$\textbf{a}^{(i)}$}
+
+    \vspace{10pt}
+    \Fn{forward($\textbf{x}^{(i)}$)} {
+    $\textbf{z}^{(i)} = \textbf{W}\textbf{x}^{(i)}$\\
+    $\hat{\textbf{y}}^{(i)} = \text{BN}(\textbf{z}^{(i)})$\\
+    $\textbf{a}^{(i)} = f(\hat{\textbf{y}}^{(i)})$ \\
+    return $\textbf{a}^{(i)}$
+    }
+    \end{algorithm}
+\end{minipage}\\\\
+
+
+In the above algorithm, we use $\textbf{x}$ to denote the inputs to the layer, 
 $\textbf{z}$ to denote the output of the weighted sum, 
 $\hat{\textbf{y}}$ to denote the standardized weighted sum,
 $\textbf{a}$ to denote the nonlinearity output, and $(i)$ represents index 
@@ -240,7 +263,7 @@ and $\boldsymbol{\beta} = \boldsymbol{\mu}$, then we observe that $\hat{\textbf{
 \subsection*{2.1: Backpropagation}
 
 In the beginning of \textbf{section 2.0}, we formulated the order of which
-operations are performed in forward propagation through a single layer (1). 
+operations are performed in forward propagation through a single layer in \textit{Algorithm 2.0.0}. 
 Backpropagation\cite{backprop} involves computing the gradients in the reverse order of 
 computations in forward propagation, which
 requires computing several gradients with respect to the parameters
@@ -281,7 +304,7 @@ Starting from the first term, we first compute $\begin{aligned}
     {\partial \hat{\textbf{y}}^{(i)} \over \partial \hat{\textbf{z}}^{(i)}} \notag
 \end{equation}
 
-Referring to equation (3), 
+Referring to equation (2), 
 
 \begin{equation}
     {\partial \hat{\textbf{y}}^{(i)} \over \partial \hat{\textbf{z}}^{(i)}} = \boldsymbol{\gamma} \notag
@@ -294,7 +317,7 @@ Therefore,
     {\partial J \over \partial \hat{\textbf{y}}^{(i)}} \boldsymbol{\gamma} \notag
 \end{equation}
 
-Referring to equation (2), we can compute $\begin{aligned}
+Referring to equation (1), we can compute $\begin{aligned}
     {\partial \hat{\textbf{z}}^{(i)} \over \partial \textbf{z}^{(i)}}
 \end{aligned}$:
 
@@ -303,7 +326,7 @@ Referring to equation (2), we can compute $\begin{aligned}
     {1 \over \sqrt{\boldsymbol{\sigma}^2 + \epsilon}} \notag
 \end{equation}
 
-The first term of equation (4) can be put together:
+The first term of equation (3) can be put together:
 
 \begin{equation}
     {\partial J \over \partial \hat{\textbf{z}}^{(i)}}
@@ -328,7 +351,7 @@ Recall that $\begin{aligned}
     {\partial \hat{\textbf{y}}^{(m)} \over \partial \hat{\textbf{z}}^{(m)}} = \boldsymbol{\gamma}
 \end{aligned}$. Now we calculate $\begin{aligned}
     {\partial \hat{\textbf{z}}^{(m)} \over \partial \boldsymbol{\sigma}^2} 
-\end{aligned}$, referring to equation (2):
+\end{aligned}$, referring to equation (1):
 
 \begin{equation}
     {\partial \hat{\textbf{z}}^{(m)} \over \partial \boldsymbol{\sigma}^2} =
@@ -346,7 +369,7 @@ Now we can complete $\begin{aligned}
     (\textbf{z}^{(m)} - \boldsymbol{\mu}) (\boldsymbol{\sigma}^2 + \epsilon)^{-3/2}
 \end{equation}
 
-We will now compute the second half of the second term in equation (4), 
+We will now compute the second half of the second term in equation (3), 
 namely $\begin{aligned}
     {\partial \boldsymbol{\sigma}^2 \over \partial \textbf{z}^{(i)}}
 \end{aligned}$. From the dependencies graph we 
@@ -374,18 +397,18 @@ And below is the gradient $\begin{aligned}
 Here $\begin{aligned}
     \bigg[{\partial \boldsymbol{\sigma}^2 \over \partial \textbf{z}^{(i)}} \bigg]_{\text{Direct}}
 \end{aligned}$ is the gradient resulting from the direct contribution of
-$\textbf{z}^{(i)}$ to $\boldsymbol{\sigma}^2$, and the second term represents
+$\textbf{z}^{(i)}$ to $\boldsymbol{\sigma}^2$, and the second term of (7) represents
 the contribution of $\textbf{z}^{(i)}$ chained through $\boldsymbol{\mu}$.
 First, we compute $\begin{aligned}
     \bigg[{\partial \boldsymbol{\sigma}^2 \over \partial \textbf{z}^{(i)}} \bigg]_{\text{Direct}}
-\end{aligned}$ from equation (7):
+\end{aligned}$ from equation (6):
 
 \begin{equation}
     \bigg[{\partial \boldsymbol{\sigma}^2 \over \partial \textbf{z}^{(i)}} \bigg]_{\text{Direct}} =
     {2 \over M} (\textbf{z}^{(i)} - \boldsymbol{\mu}) \notag
 \end{equation}
 
-Now we can compute the second term of equation (8), starting with 
+Now we can compute the second term of equation (7), starting with 
 $\begin{aligned}
     {\partial \boldsymbol{\sigma}^2 \over \partial \boldsymbol{\mu}}
 \end{aligned}$:
@@ -406,7 +429,7 @@ Then, we compute $\begin{aligned}
     {1\over M} 
 \end{equation}
 
-Now, we can complete equation (8) by piecing together the gradients 
+Now, we can complete equation (7) by piecing together the gradients 
 we just calculated:
 
 \begin{equation}
@@ -415,9 +438,8 @@ we just calculated:
     -{2 \over M^2} \sum_{m=1}^M (\textbf{z}^{(m)} - \boldsymbol{\mu}) \notag
 \end{equation}
 
-Combining equation (8), we complete the second term of equation (4).
-In other words, we computed the change in cost $J$ with respect of 
-$\textbf{z}^{(i)}$ chaining through $\boldsymbol{\sigma}^2$.
+Combining (7) with (5), we put together the second term of equation (3).
+The next step is to simplify the term.
 
 $$
 \begin{aligned}
@@ -489,7 +511,7 @@ $$\begin{aligned}
         \hat{\textbf{z}}^{(m)}\bigg]\Bigg]
 \end{equation}
 
-Finally, we calculate the final term of equation (4). Starting off
+Finally, we calculate the final term of equation (3). Starting off
 with $\begin{aligned}
     {\partial J \over \partial \boldsymbol{\mu}}
 \end{aligned}$, we observe that $\begin{aligned}
@@ -497,7 +519,7 @@ with $\begin{aligned}
 \end{aligned}$ is a dependency of $\hat{\textbf{z}}^{(1)},...,\ \hat{\textbf{z}}^{(M)}$
 as well as $\boldsymbol{\sigma}^2$. Note that we have already accounted for
 the contribution of $\boldsymbol{\mu}$ to $J$ through $\boldsymbol{\sigma}^2$
-in equation (8), so we do not need to compute that a second time.
+in equation (7), so we do not need to compute that a second time.
 
 \begin{equation}
     {\partial J \over \partial \boldsymbol{\mu}} = 
@@ -508,7 +530,7 @@ in equation (8), so we do not need to compute that a second time.
 
 Next, we calculate $\begin{aligned}
     {\partial \hat{\textbf{z}}^{(m)} \over \partial \boldsymbol{\mu}} 
-\end{aligned}$ referencing equation (2):
+\end{aligned}$ referencing equation (1):
 
 \begin{equation}
     {\partial \hat{\textbf{z}}^{(m)} \over \partial \boldsymbol{\mu}} = 
@@ -528,8 +550,8 @@ Thus, we get the full equation for $\begin{aligned}
 
 The latter half of the third term $\begin{aligned}
     {\partial \boldsymbol{\mu}\over \partial \textbf{z}^{(i)}}
-\end{aligned}$ is already calculated in equation (9), so we will reuse that
-calculation. The last term of equation (4) is as follows:
+\end{aligned}$ is already calculated in equation (8), so we will reuse that
+calculation. The last term of equation (3) is as follows:
 
 \begin{equation}
     {\partial J \over \partial \boldsymbol{\mu}} 
@@ -541,7 +563,7 @@ calculation. The last term of equation (4) is as follows:
 
 putting together $\begin{aligned}
     {\partial J \over \partial \textbf{z}^{(i)}}
-\end{aligned}$, we sum together equations (5), (10), and (11) and simplify:
+\end{aligned}$, we sum together equations (4), (9), and (10) and simplify:
 
 \begin{equation}
     \begin{aligned}
@@ -583,7 +605,7 @@ earlier layers. There are two other gradients to calculate, namely $\begin{align
     {\partial J \over \partial \boldsymbol{\beta}}
 \end{aligned}$. Luckily, these two gradients are much easier to compute, 
 and do not require pages of derivation. Referring to \textit{Figure 2.1.1} in 
-the appendix (which is modelled after equation (3)), scaling and shifting parameters
+the appendix (which is modelled after equation (2)), scaling and shifting parameters
 $\boldsymbol{\gamma}$ and $\boldsymbol{\beta}$ are dependencies of 
 every $\hat{\textbf{y}}^{(1)}, ... \ , \hat{\textbf{y}}^{(M)} $, therefore when 
 computing these gradients, we need to sum every contribution:
@@ -666,9 +688,9 @@ fully-connected neural network without BN.
 Firstly it's important to talk about the dataset used to conduct the tests.
 The Higgs Dataset\cite{higgs} is produced 
 by Monte Carlo simulations of particles in a particle accelerator. The 
-dataset contains 11 million datapoints with 28 features each, as well
-as a binary task representing whether the signal produced a Higgs boson, or 
-if its simply a background signal. The full Higgs Dataset contains 11 million 
+dataset contains 11 million data points with 28 features each, as well
+ binary labels representing whether the signals produced Higgs bosons, or 
+if they are simply background signals. The full Higgs Dataset contains 11 million 
 data points and takes up 7.5 GB of storage, however due to the computational 
 deficiencies of training the model on CPU, we took a subset of the full dataset
 containing only 495,000 data points.
@@ -682,7 +704,7 @@ ML libraries were used), and the BN implementation
 strictly follows the formulation described in \textbf{section 2}.
 
 The training heuristics are identical for each model. The hyperparameter search process used 
-a genetic algorithm (M. Gen, R. Cheng, 2000) to find the best performing 
+a genetic algorithm\cite{genetic} to find the best performing 
 hyperparameters for each model. While the hyperparameters will not be identical
 between the control and batch normalized models, we are still subjecting both
 models to the same heuristics, thus both models are given equal opportunities 
@@ -692,7 +714,7 @@ For each generation, the genetic algorithm trains 10 models with randomly
 selected hyperparameters within a set of bounds, and sorts the models
 by validation accuracy. The two hyperparameters being optimized are the 
 L2 regularization coefficient and the learning rate. Then, the top 3 models
-within each generation are selected and using gaussian mutation, the bounds of each hyperparameter 
+within each generation are selected and using gaussian mutation\cite{gm}, the bounds of each hyperparameter 
 are updated. We train for 10 generations total, with 10 models per generation, 
 where each model is trained for 10 epochs. Refer to \textit{Algorithm 3.2.0}
 in the appendix for the hyperparameter search algorithm.
@@ -719,9 +741,9 @@ the control model.
 We also notice that the L2 coefficients obtained from hyperparameter 
 search are \textbf{lower} for the BN model than the values for the control model 
 ($1.26 \times 10^{-8}$ vs. $3.98 \times 10^{-8}$), which suggests that BN also 
-provides slight regularization effects. The original papers on Batch Normalization
-also arrived on the same conclusion, stating that the strength of Dropout (or 
-other methods of regularization) can be reduced or removed in a Batch Normalized 
+provides slight regularization effects. The original papers\cite{batchnorm}
+also arrived on the same conclusion, stating that the strength of Dropout\cite{dropout} (or 
+other methods of regularization) can be reduced or removed altogether in a Batch Normalized 
 network.
 
 
@@ -748,11 +770,11 @@ distributions in neural networks, allowing for much faster training
 as well as higher peak validation and test performance. That said, 
 implementing BN comes with a performance penalty. We benchmarked the training
 and inference performance of the batch normalized and control model, of which 
-the performance values can be found in \textit{Table 3.2.1}. During inference, 
-the BN model needs to compute equations (15) and (3) during forward propagation
+the performance values can be found in \textit{Table 3.2.1} (Appendix). During inference, 
+the BN model needs to compute equations (14) and (2) during forward propagation
 at each layer, leading to a 25.3\% slowdown for the BN model. During the training
 process, the performance penalty is even greater, as in addition to the 
-forward propagation overhead of BN, we also need to calculate equations (12), (13), and (14)
+forward propagation overhead of BN, we also need to calculate equations (11), (12), and (13)
 at every layer during backprop, leading to an overall slowdown of 35.6\%.
 The performance penalty during inference may be an issue for tasks that 
 are time-sensitive, such as real time object detection, while the performance
@@ -770,7 +792,7 @@ during training, allowing much larger gradient steps to be performed without div
 In this paper we presented the in-depth derivation of backpropagation
 of BN and implemented the derived formulation in a simple fully-connected model.
 The BN model was then compared against architecturally-identical control model
-on the Higgs Dataset. From the experimentation we found that the BN model supported
+on the Higgs Dataset \cite{higgs}. From the experimentation we found that the BN model supported
 higher learning rates and did not need as much regularization as the control.
 While BN introduces runtime performance penalties when training and predicting, 
 for our experiment, the benefits of faster convergence far outweighed the 
@@ -786,7 +808,7 @@ of BN within a layer given different nonlinearities and weight initializations.
 
 
 
-\end{multicols}
+\end{multicols*}
 
 
 
@@ -804,37 +826,6 @@ of BN within a layer given different nonlinearities and weight initializations.
 
 
 
-
-
-
-
-
-Backpropagation website:
-\url{https://kevinzakka.github.io/2016/09/14/batch_normalization/}
-
-\noindent Original Batch Norm Paper:
-\url{https://arxiv.org/pdf/1502.03167.pdf}
-
-\noindent Batch Norm Explained Visually:
-\url{https://towardsdatascience.com/batch-norm-explained-
-visually-how-it-works-and-why-neural-networks-need-it-b18919692739}:
-
-
-\noindent Placement of Batch Norm:
-\url{https://arxiv.org/pdf/1912.04259.pdf}
-
-\noindent Higgs Dataset:
-Baldi, P., P. Sadowski, and D. Whiteson. “Searching for Exotic Particles in High-energy Physics with Deep Learning.” Nature Communications 5 (July 2, 2014).
-
-\noindent Genetic Algorithms (page 34, gaussian mutation):
-\url{https://books.google.ca/books?hl=en&lr=&id=U7MuV1q6P1oC&oi=fnd&pg=PR13&ots=51xsEryrpq&sig=y3vgWu0h7DZ4CGBcRlhXdc2ClCE&redir_esc=y#v=onepage&q&f=false}
-
-\noindent Dropout: 
-\url{https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf}
-
-
-\noindent Inception Net:
-\url{https://arxiv.org/pdf/1409.4842.pdf}
 
 
 
